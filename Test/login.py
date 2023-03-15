@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from Pages.loginPage import LoginPage
 
 
 class LoginTest(unittest.TestCase):
@@ -18,10 +19,12 @@ class LoginTest(unittest.TestCase):
                                       options=cls.options)
 
     def test_valid_login(self):
-        self.driver.get("https://www.saucedemo.com/")
-        self.driver.find_element(By.ID, "user-name").send_keys("standard_user")
-        self.driver.find_element(By.ID, "password").send_keys("secret_sauce")
-        self.driver.find_element(By.ID, "login-button").click()
+        driver = self.driver
+        driver.get("https://www.saucedemo.com/")
+        login = LoginPage(driver)
+        login.enter_username("standard_user")
+        login.enter_password("secret_sauce")
+        login.click_login()
         time.sleep(2)
 
     @classmethod
