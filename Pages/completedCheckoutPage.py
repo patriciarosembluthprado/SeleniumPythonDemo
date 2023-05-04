@@ -1,5 +1,3 @@
-import logging
-
 from selenium.webdriver.common.by import By
 
 from Locators.pageLocators import CompletedCheckoutLocators
@@ -12,4 +10,3 @@ class CompletedCheckoutPage:
 
     def get_completed_order_text(self):
         self.completed_text = self.driver.find_element(By.XPATH, CompletedCheckoutLocators.complete_text_xpath).text
-

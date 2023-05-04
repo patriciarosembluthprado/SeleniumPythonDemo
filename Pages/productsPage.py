@@ -15,8 +15,8 @@ class ProductsPage:
 
     def add_products_to_cart(self):
         self.select_products()
-        for self.product in self.products_list:
-            self.product.click()
+        for product in self.products_list:
+            product.click()
 
     def click_shopping_cart_icon(self):
         self.driver.find_element(By.ID, ProductsPageLocators.shopping_cart_icon_id).click()
